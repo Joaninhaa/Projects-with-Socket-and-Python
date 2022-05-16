@@ -1,7 +1,6 @@
 import socket
 import threading
 
-
 HOST = "192.168.1.110"
 PORT = 5545
 MSGEXIT = "leave"
@@ -9,8 +8,10 @@ FORMAT = "utf-8"
 
 c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect((HOST, PORT))
+
 name = input("Username: ")
 name = "[" + name + "]: "
+
 
 def send(run):
     while True:
@@ -26,6 +27,7 @@ def send(run):
         except:
             break
     
+
 def recieve(run):
     while True:
         try:
@@ -35,7 +37,6 @@ def recieve(run):
             print(msg)
         except:
             break
-        
     run = False
 
 
@@ -46,5 +47,6 @@ def main():
     ta.start()
     t.start()
             
+
 
 main()

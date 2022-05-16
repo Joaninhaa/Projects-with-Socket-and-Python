@@ -4,10 +4,13 @@ import threading
 HOST = "192.168.1.110"
 PORT = 5545
 MSGEXIT = "!leave"
+FORMAT = "utf-8"
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
-FORMAT = "utf-8"
+
 clients = []
+
 
 def recieve(conn, addr):
     run = True
@@ -30,6 +33,7 @@ def recieve(conn, addr):
 def main():
     s.listen()
     print('[SERVER]: AYAYAY')
+
     while True:
         conn, addr = s.accept()
         clients.append(conn)
