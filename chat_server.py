@@ -17,9 +17,12 @@ def recieve(conn, addr):
     while run:
         msg = (conn.recv(1024)).decode(FORMAT)
         if MSGEXIT in msg:
-            print("[SERVER]: Bye, addr: {addr}, conn: {conn}")
+            print(f"[SERVER]: Bye, addr: {addr}, conn: {conn}")
             run = False
-            conn.send("!exit")
+            try:
+                conn.send("!exit".encode(FORMAT))
+            except:
+                pass
         print(msg)
 
         for client in clients:
