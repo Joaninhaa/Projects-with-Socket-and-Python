@@ -1,7 +1,7 @@
 import socket
 import threading
 
-HOST = "192.168.1.110"
+HOST = "localhost"
 PORT = 5545
 MSGEXIT = "!leave"
 FORMAT = "utf-8"
@@ -17,7 +17,7 @@ def recieve(conn, addr):
     while run:
         msg = (conn.recv(1024)).decode(FORMAT)
         if MSGEXIT in msg:
-            print("[SERVER]: tão vazando!!!")
+            print("[SERVER]: Bye, addr: {addr}, conn: {conn}")
             run = False
             conn.send("!exit")
         print(msg)
@@ -32,7 +32,7 @@ def recieve(conn, addr):
 
 def main():
     s.listen()
-    print('[SERVER]: AYAYAY')
+    print('[SERVER]: server is ready!!!')
 
     while True:
         conn, addr = s.accept()

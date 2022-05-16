@@ -1,7 +1,7 @@
 import socket
 import threading
 
-HOST = "192.168.1.110"
+HOST = "localhost"
 PORT = 5545
 MSGEXIT = "leave"
 FORMAT = "utf-8"
